@@ -17,13 +17,41 @@ Esportare quindi il diagramma in jpg e caricarlo nella repo.
 # università 
 
 # dipartimenti (es.: Lettere e Filosofia, Matematica, Ingegneria ecc.)
+  - id pk auto_increment
+  - nome notnull varchar(40)
 
-  # corsi_di_laurea (es.: Civiltà e Letterature Classiche, Informatica, Ingegneria Elettronica ecc..)
-    - studenti
+# corsi_di_laurea (es.: Civiltà e Letterature Classiche, Informatica, Ingegneria Elettronica ecc..)
+  - id pk auto_increment
+  - nome notnull varchar(40)
+  - dipartimento_id notnull
  
-    # corsi (es.: Letteratura Latina, Sistemi Operativi 1, Analisi Matematica 2 ecc.)
-      - appelli
-      - voto_appello
-      - insegnanti
-    
+# corsi (es.: Letteratura Latina, Sistemi Operativi 1, Analisi Matematica 2 ecc.)
+  - id pk auto_increment
+  - nome notnull varchar(40)
+  - corso_di_laurea_id notnull
+
+# insegnanti
+  - id pk auto_increment
+  - nome notnull varchar(40)
+
+# insegnanti_corsi
+  - insegnanti_id notnull
+  - corsi_id notnull
+
+# studenti
+  - id pk auto_increment
+  - nome notnull varchar(40)
+  - corso_di_laurea_id notnull
+
+# appelli
+  - id pk auto_increment
+  - data notnull date   
+  - corso_id notnull
+
+# iscrizioni_appelli
+  - studente_id notnull
+  - appello_id notnull
+  - voto null tinyint
+  - lode null tinyint default(0) 
+  - presenza notnull tinyint default(0)                  
 
